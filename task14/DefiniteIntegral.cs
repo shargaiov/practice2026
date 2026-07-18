@@ -48,6 +48,25 @@ public static class DefiniteIntegral
         return totalResult;
     }
 
+    public static double SolveSingleThread(double a, double b, Func<double, double> function, double step)
+    {
+        if (step <= 0) throw new ArgumentException("Шаг должен быть > 0");
+        if (a >= b) throw new ArgumentException("Граница A должна быть меньше B");
+
+        double sum = 0.0;
+        int stepsCount = (int)Math.Ceiling((b - a) / step);
+        double stepSize = (b - a) / stepsCount;
+
+        for (int s = 0; s < stepsCount; s++)
+        {
+            double x1 = a + s * stepSize;
+            double x2 = x1 + stepSize;
+            sum += (function(x1) + function(x2)) * stepSize * 0.5;
+        }
+
+        return sum;
+    }
+
     private static void AddDoubleAtomically(ref double target, double value)
     {
         double initial, computed;
