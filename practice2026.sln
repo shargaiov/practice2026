@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandRunner", "CommandRun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task08tests", "task08tests\task08tests.csproj", "{AF55F4F2-CC85-4A44-A96A-2261B8E2E7DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataReader", "MetadataReader\MetadataReader.csproj", "{CFBA54D8-5A1D-4DA9-BE8A-0F4069040DCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{AF55F4F2-CC85-4A44-A96A-2261B8E2E7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF55F4F2-CC85-4A44-A96A-2261B8E2E7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF55F4F2-CC85-4A44-A96A-2261B8E2E7DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFBA54D8-5A1D-4DA9-BE8A-0F4069040DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBA54D8-5A1D-4DA9-BE8A-0F4069040DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBA54D8-5A1D-4DA9-BE8A-0F4069040DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBA54D8-5A1D-4DA9-BE8A-0F4069040DCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
