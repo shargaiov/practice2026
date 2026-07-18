@@ -2,28 +2,31 @@
 using System.Linq;
 using CommandLib;
 
-namespace FileSystemCommands;
-
-public class DirectorySizeCommand : ICommand
+namespace FileSystemCommands
 {
-    private readonly string _targetPath;
-    
-    public long CalculatedSize { get; private set; }
-
-    public DirectorySizeCommand(string targetPath)
+    [DisplayName("Команда вычисления размера каталога")]
+    [Version(1, 0)]
+    public class DirectorySizeCommand : ICommand
     {
-        _targetPath = targetPath;
-    }
+        private readonly string _targetPath;
+        
+        public long CalculatedSize { get; private set; }
 
-    public void Execute()
-    {
-        CalculatedSize = 0;
-
-        if (Directory.Exists(_targetPath))
+        public DirectorySizeCommand(string targetPath)
         {
-            CalculatedSize = new DirectoryInfo(_targetPath)
-                .GetFiles("*", SearchOption.AllDirectories)
-                .Sum(file => file.Length);
+            _targetPath = targetPath;
+        }
+
+        public void Execute()
+        {
+            CalculatedSize = 0;
+
+            if (Directory.Exists(_targetPath))
+            {
+                CalculatedSize = new DirectoryInfo(_targetPath)
+                    .GetFiles("*", SearchOption.AllDirectories)
+                    .Sum(file => file.Length);
+            }
         }
     }
 }
