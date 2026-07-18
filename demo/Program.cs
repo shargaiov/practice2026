@@ -9,17 +9,15 @@ var scheduler = new RoundRobinScheduler();
 var server = new ServerThread(scheduler);
 var log = new List<int>(); 
 
-// Теперь вызываем конструктор с двумя аргументами
 for (int i = 1; i <= 5; i++)
 {
     server.EnqueueNew(new TestCommand(i, log));
 }
 
 server.Start();
-System.Threading.Thread.Sleep(1000); // Дадим чуть больше времени
+System.Threading.Thread.Sleep(1000);
 server.Stop();
 
-// Генерация графика
 var plot = new Plot();
 plot.Title("Сетка выполнения задач (Round Robin)");
 plot.XLabel("Сквозной шаг выполнения");
@@ -35,7 +33,6 @@ for (int id = 1; id <= 5; id++)
         plot.Add.Scatter(steps.ToArray(), Enumerable.Repeat((double)id, steps.Count).ToArray());
 }
 
-// СОХРАНЕНИЕ
 string outputPath = Path.Combine(Directory.GetCurrentDirectory(), "progress_chart.png");
 plot.SavePng(outputPath, 800, 600);
 File.WriteAllText("report.txt", "Отчет по выполнению:\n" + string.Join("\n", log.Select((id, i) => $"Шаг {i+1}: Задача {id}")));
