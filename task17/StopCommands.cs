@@ -1,0 +1,27 @@
+using System;
+
+namespace task17;
+
+public class HardStopCommand : ICommand
+{
+    private readonly ServerThread _server;
+
+    public HardStopCommand(ServerThread server)
+    {
+        _server = server ?? throw new ArgumentNullException(nameof(server));
+    }
+
+    public void Execute() => _server.InitiateHardStop();
+}
+
+public class SoftStopCommand : ICommand
+{
+    private readonly ServerThread _server;
+
+    public SoftStopCommand(ServerThread server)
+    {
+        _server = server ?? throw new ArgumentNullException(nameof(server));
+    }
+
+    public void Execute() => _server.InitiateSoftStop();
+}
